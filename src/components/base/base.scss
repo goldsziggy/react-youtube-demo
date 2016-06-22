@@ -1,0 +1,28 @@
+// MAIN
+@import '~bootstrap/scss/bootstrap';
+@import url('//fonts.googleapis.com/css?family=Roboto');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.margin-top-50 {
+  margin-top: 50px
+}
+
+.margin-vert-30 {
+  margin: 30px 0;
+}
+
+// BUTTONS / LINKS
+.react-link{
+  cursor: pointer; 
+  cursor: hand;
+}
+
+.react-link-underline{
+  color: blue;
+}
+
+
