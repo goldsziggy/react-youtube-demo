@@ -4,9 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
   entry: [
-    `webpack-hot-middleware/client?reload=true&https://${ process.env.IP }:${ process.env.PORT }`,
     'app.js',
   ],
   output: {
@@ -29,11 +28,13 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env':{
-        'NODE_ENV': JSON.stringify('development'),
+        'NODE_ENV': JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -50,9 +51,4 @@ module.exports = {
       'components': path.join(__dirname, '../src/components/'),
     },
   },
-  devServer: {
-    contentBase: path.resolve('build'),
-    historyApiFallback: true,
-    compress: false,
-  }
 };

@@ -1,0 +1,21 @@
+// LIST
+list {
+  .col-md-4 {
+    padding: 0;
+  }
+  ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+    overflow: auto;
+    min-height: 270px;
+    li {
+      cursor: pointer;
+      border-radius: 0;
+      height: 120px;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+    
+  }
+}

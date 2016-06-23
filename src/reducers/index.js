@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import { reducer as form } from 'redux-form';
-import { routerReducer as routing } from 'react-router-redux';
+import videos from './videos';
 
 const rootReducer = combineReducers({
-  routing,
-  form,
+  videos,
 });
 
 export default rootReducer;

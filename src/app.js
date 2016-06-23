@@ -9,7 +9,7 @@ const rootComponent = (
   <Root store={store} />
 );
 
-const domMount = document.createElement('div');
+const domMount = document.createElement('react');
 document.body.appendChild(domMount);
 
 ReactDOM.render(rootComponent, domMount);

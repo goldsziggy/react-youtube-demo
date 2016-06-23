@@ -14,7 +14,7 @@ describe('Component: Footer', () => {
   );
 
   it('should display the current year and creator name for the copywrite', () => {
-    const el = component.getElementsByTagName('p')[0].textContent;
-    return expect(el).to.equal(`Anthony Grove © ${new Date().getFullYear()}`);
+    const el = component.find('p');
+    return expect(el).text(`Anthony Grove © ${new Date().getFullYear()}`);
   });
 });

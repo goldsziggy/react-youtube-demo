@@ -1,27 +1,46 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { NavBar, Footer, Detail, List } from 'components';
+import { updateSearchQuery } from 'src/actions';
+import * as config from 'src/actions/config';
 import './base.scss';
-import { NavBar, Footer } from 'components';
 
-const Base = (props) =>
-  <div>
-    <Helmet
-      title="YouTube Explorer"
-      meta={[
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ]}
-    />
-    <NavBar />
-    <main className="container">
-      <div className="row">
-        {props.children}
-      </div>
-    </main>
-    <Footer />
-  </div>;
+class Base extends Component {
+  componentWillMount() {
+    this.props.updateSearchQuery(config.INITAL_QUERY);
+  }
+  render() {
+    return (
+      <react>
+        <Helmet
+          title="YouTube Explorer"
+          meta={[
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          ]}
+        />
+        <NavBar />
+        <main>
+          <div className="row" style={{ height: '100%' }}>
+            <Detail />
+            <List />
+          </div>
+        </main>
+        <Footer />
+      </react>
+    );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    updateSearchQuery,
+  }, dispatch);
+}
 
 Base.propTypes = {
-  children: PropTypes.node,
+  updateSearchQuery: PropTypes.func,
 };
 
-export default Base;
+export default connect(null, mapDispatchToProps)(Base);

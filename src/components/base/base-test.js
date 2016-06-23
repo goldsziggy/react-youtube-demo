@@ -14,17 +14,17 @@ describe('Component: Base', () => {
   );
 
   it('show the navbar element', () => {
-    const el = component.getElementsByTagName('nav')[0];
+    const el = component.find('nav');
     return expect(el).to.exist;
   });
 
   it('show the main element', () => {
-    const el = component.getElementsByTagName('main')[0];
+    const el = component.find('main');
     return expect(el).to.exist;
   });
 
   it('show the footer element', () => {
-    const el = component.getElementsByTagName('footer')[0];
+    const el = component.find('footer');
     return expect(el).to.exist;
   });
 });

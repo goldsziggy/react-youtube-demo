@@ -1,13 +1,13 @@
-
+/* global $ */
 import React from 'react';
 import ReactDom from 'react-dom';
-import jquery from 'jquery';
+import chai from 'chai';
 import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router';
 import { applyMiddleware, compose, createStore } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
+import reduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 
 import rootReducer from 'reducers';
 
@@ -20,7 +20,8 @@ function renderComponent(ComponentClass, props, children) {
     return () => <ComponentClass {...props} />;
   })();
   const middleware = compose(
-    applyMiddleware(routerMiddleware(browserHistory))
+    applyMiddleware(reduxPromise),
+    applyMiddleware(thunk)
   );
   const store = createStore(
     rootReducer,
@@ -31,7 +32,15 @@ function renderComponent(ComponentClass, props, children) {
       <Component />
     </Provider>
   );
-  return ReactDom.findDOMNode(componentInstance);
+  
+  chai.use(require('chai-jquery'));
+  
+  $.fn.simulate = function (eventName, value) {
+    if(value) this.val(value);
+    Simulate[eventName](this[0]);
+  };
+  
+  return $(ReactDom.findDOMNode(componentInstance));
 }
 
 export default renderComponent;

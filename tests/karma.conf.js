@@ -8,10 +8,11 @@ module.exports = (config) => {
 
     singleRun: !!process.env.CI,
 
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'jquery-chai'],
 
     files: [
       '../node_modules/phantomjs-polyfill/bind-polyfill.js',
+      '../node_modules/es6-promise/dist/es6-promise.js',
       'tests.webpack.js',
     ],
 
@@ -27,6 +28,7 @@ module.exports = (config) => {
       require('karma-mocha-reporter'),
       require('karma-phantomjs-launcher'),
       require('karma-sourcemap-loader'),
+      require('karma-jquery-chai'),
     ],
     
     webpack: {
@@ -57,7 +59,6 @@ module.exports = (config) => {
       },
       plugins: [
         new webpack.IgnorePlugin(/\.json$/),
-        new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
           __DEVTOOLS__: false, 
         }),
