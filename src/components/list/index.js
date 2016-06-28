@@ -40,7 +40,7 @@ class List extends Component {
       <list>
         <div className="col-md-4">
           <SearchBar />
-          <ul style={{ height: this.props.containerHeight - 38 }}>
+          <ul style={{ height: this.props.containerHeight }}>
             {videos.get('loading') ? this.renderLoading() : this.renderVideoList(videoList)}
           </ul>
         </div>

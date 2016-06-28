@@ -22,10 +22,8 @@ class Base extends Component {
         />
         <NavBar />
         <main>
-          <div className="row" style={{ height: '100%' }}>
-            <Detail />
-            <List />
-          </div>
+          <Detail />
+          <List />
         </main>
         <Footer />
       </react>

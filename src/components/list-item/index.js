@@ -9,7 +9,7 @@ const ListItem = (props) => {
   const title = video.getIn(['snippet', 'title']);
   return (
     <li onClick={() => props.updateCurrentVideo(video)} className="list-group-item">
-      <div className="video-list media">
+      <div className="media">
         <div className="media-left">
           <img className="media-object" role="presentation" src={imageUrl} />
         </div>
