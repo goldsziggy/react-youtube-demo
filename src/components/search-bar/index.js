@@ -30,7 +30,8 @@ class SearchBar extends Component {
         <div className="form-inline search">
           <input
             className="form-control"
-            type="text" onChange={this.handleSearchInput}
+            type="text"
+            onChange={this.handleSearchInput}
             onKeyPress={this.handleEnter}
             value={this.state.searchQuery}
             placeholder="Search YouTube"
@@ -46,7 +47,7 @@ class SearchBar extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) =>
+const mapDispatchToProps = dispatch =>
   bindActionCreators({
     updateSearchQuery,
   }, dispatch);

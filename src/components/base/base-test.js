@@ -10,7 +10,7 @@ describe('Component: Base', () => {
   });
 
   it('should render correctly', () =>
-    expect(component).to.exist
+    expect(component).to.exist,
   );
 
   it('show the navbar element', () => {

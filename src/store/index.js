@@ -9,12 +9,12 @@ export default function configureStore() {
   const middleware = compose(
     // applyMiddleware(createLogger()),
     applyMiddleware(reduxPromise),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
   );
 
   const store = createStore(
     rootReducer,
-    middleware
+    middleware,
   );
 
   return store;

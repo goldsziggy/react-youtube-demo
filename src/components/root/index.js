@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Base } from 'components';
 
-const Root = (props) =>
-  <Provider store={props.store}>
+const Root = props =>
+  (<Provider store={props.store}>
     <Base />
-  </Provider>;
+  </Provider>);
 
 
 Root.propTypes = {

@@ -10,6 +10,6 @@ describe('Component: List Item', () => {
   });
 
   it('should render correctly', () =>
-    expect(component).to.exist
+    expect(component).to.exist,
   );
 });

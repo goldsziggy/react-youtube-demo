@@ -10,7 +10,7 @@ describe('Component: NavBar', () => {
   });
 
   it('should render correctly', () =>
-    expect(component).to.exist
+    expect(component).to.exist,
   );
 
   it('should display logo text', () => {

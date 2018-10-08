@@ -127,8 +127,8 @@ describe('Reducer: Videos', () => {
       });
 
       const NEW_STATE = INITIAL_STATE
-      .set('videoList', List())
-      .set('loading', false);
+        .set('videoList', List())
+        .set('loading', false);
 
       const reducerState = reducer(INITIAL_STATE, ACTION);
       expect(reducerState).to.equal(NEW_STATE);

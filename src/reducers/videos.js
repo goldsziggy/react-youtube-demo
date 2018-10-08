@@ -23,7 +23,7 @@ export default function (state = INITIAL_STATE, action) {
         .set('loading', false);
     case types.UPDATE_VIDEOS_LOADING:
       return state
-      .set('loading', true);
+        .set('loading', true);
     default:
       return state;
   }

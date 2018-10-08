@@ -10,7 +10,7 @@ describe('Component: Footer', () => {
   });
 
   it('should render correctly', () =>
-    expect(component).to.exist
+    expect(component).to.exist,
   );
 
   it('should display the current year and creator name for the copywrite', () => {

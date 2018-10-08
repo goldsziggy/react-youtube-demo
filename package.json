@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon webpack/webpack-dev-server.js",
     "test": "karma start tests/karma.conf.js",
-    "lint": "eslint src/ || true",
+    "lint": "eslint src/ --fix",
     "build": "NODE_ENV=production webpack -p --config webpack/webpack.prod.config.js"
   },
   "babel": {
